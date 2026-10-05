@@ -40,6 +40,698 @@ BIO3_TPL = BIO3_TPL.replace('#2F5DA8', '#9E1C3F').replace('#2f5da8', '#9e1c3f')
 BIO3_TPL = BIO3_TPL.replace('#1B2A44', '#2B191D').replace('#1b2a44', '#2b191d')
 BIO3_TPL = BIO3_TPL.replace('選修生物(Ⅰ)', '選修生物(Ⅲ)')
 
+# 2. 注入選修生物(Ⅲ) 專屬圖解探索版面 CSS（同框視窗縮小適配、三標籤導讀切換、圖片原寸放大）
+NEW_LEARN_CSS = """
+/* ===== 選修生物(Ⅲ) 現代化圖解探索版面 (同框視窗縮小適配 + 三標籤切換) ===== */
+#learn .learn-workspace {
+  display: grid !important;
+  grid-template-columns: 240px minmax(0, 1fr) !important;
+  gap: 16px !important;
+  align-items: stretch !important;
+  height: calc(100vh - 125px) !important;
+  max-height: calc(100vh - 125px) !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+#learn .learn-sidebar {
+  position: static !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow-y: auto !important;
+  background: var(--surface) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 10px !important;
+  padding: 10px 8px !important;
+}
+#learn .learn-sidebar > summary {
+  display: none !important;
+}
+#learn .toc-group {
+  margin: 10px 0 4px !important;
+  padding: 4px 6px !important;
+  border-left: 3px solid var(--accent) !important;
+  background: var(--accent-soft) !important;
+  border-radius: 0 4px 4px 0 !important;
+}
+#learn .toc-group-title {
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  color: var(--accent) !important;
+  line-height: 1.3 !important;
+}
+#learn .toc-group-sub {
+  display: block !important;
+  font-size: 11px !important;
+  font-weight: normal !important;
+  color: var(--ink-3) !important;
+  margin-top: 2px !important;
+}
+#learn .toc-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+  padding: 7px 8px !important;
+  margin: 2px 0 !important;
+  border: 1px solid transparent !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  transition: all .15s ease !important;
+}
+#learn .toc-item:hover {
+  background: var(--surface-2) !important;
+  border-color: var(--line-soft) !important;
+}
+#learn .toc-item[aria-current="step"] {
+  background: var(--accent-soft) !important;
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+  font-weight: 600 !important;
+}
+#learn .toc-item .toc-index {
+  font-family: ui-monospace, monospace !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  color: var(--accent) !important;
+  background: var(--surface) !important;
+  border: 1px solid var(--line) !important;
+  padding: 1px 5px !important;
+  border-radius: 4px !important;
+  flex-shrink: 0 !important;
+}
+#learn .toc-item .toc-name {
+  font-size: 12.5px !important;
+  color: var(--ink) !important;
+  flex: 1 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+#learn .toc-item .toc-read {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: var(--ok) !important;
+  min-width: 14px !important;
+  text-align: right !important;
+  flex-shrink: 0 !important;
+}
+
+#learn .lesson-main {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+#learn #learn-stage {
+  flex: 1 !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+#learn .lcard {
+  flex: 1 !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: var(--surface) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--shadow) !important;
+  overflow: hidden !important;
+}
+#learn .lhead {
+  padding: 10px 18px !important;
+  background: var(--surface-2) !important;
+  border-bottom: 1px solid var(--line) !important;
+  flex-shrink: 0 !important;
+}
+#learn .lhead-meta {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 3px !important;
+}
+#learn .lhead .num {
+  font-family: ui-monospace, monospace !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  color: var(--accent) !important;
+  background: var(--accent-soft) !important;
+  padding: 2px 8px !important;
+  border-radius: 4px !important;
+}
+#learn .lhead .lsec {
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  color: var(--ink-2) !important;
+}
+#learn .lhead h2 {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: var(--ink) !important;
+  margin: 0 !important;
+  line-height: 1.3 !important;
+}
+#learn .lhead-desc {
+  font-size: 12.5px !important;
+  color: var(--ink-3) !important;
+  margin: 3px 0 0 !important;
+  line-height: 1.4 !important;
+}
+#learn .lbody {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.22fr) minmax(360px, 1fr) !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+#learn .lfig {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  padding: 14px !important;
+  background: #0f141c !important;
+  border-right: 1px solid var(--line) !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+#learn .fig-viewport {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+#learn .fig-img-box {
+  max-width: 100% !important;
+  max-height: calc(100% - 24px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  cursor: zoom-in !important;
+}
+#learn .learn-main-img {
+  max-width: 100% !important;
+  max-height: calc(100vh - 250px) !important;
+  object-fit: contain !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.45) !important;
+  transition: transform .2s ease !important;
+}
+#learn .fig-img-box:hover .learn-main-img {
+  transform: scale(1.015) !important;
+}
+#learn .fig-zoom-hint {
+  position: absolute !important;
+  bottom: 10px !important;
+  right: 10px !important;
+  background: rgba(0, 0, 0, 0.75) !important;
+  color: #fff !important;
+  font-size: 11px !important;
+  padding: 3px 8px !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(4px) !important;
+  pointer-events: none !important;
+  opacity: 0.85 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+#learn .fig-sub-caption {
+  font-size: 12px !important;
+  color: #cbd5e1 !important;
+  margin-top: 6px !important;
+  text-align: center !important;
+  flex-shrink: 0 !important;
+  font-weight: 500 !important;
+}
+#learn .ltext.custom-tabs-ltext {
+  height: 100% !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  background: var(--surface) !important;
+}
+#learn .read-tabs-nav {
+  display: flex !important;
+  gap: 4px !important;
+  background: var(--surface-2) !important;
+  border-bottom: 1px solid var(--line) !important;
+  padding: 8px 12px 0 !important;
+  flex-shrink: 0 !important;
+  overflow-x: auto !important;
+}
+#learn .read-tab-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 8px 14px !important;
+  border: 1px solid transparent !important;
+  border-bottom: none !important;
+  border-radius: 6px 6px 0 0 !important;
+  background: transparent !important;
+  color: var(--ink-2) !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all .15s ease !important;
+  white-space: nowrap !important;
+}
+#learn .read-tab-btn:hover {
+  background: var(--surface) !important;
+  color: var(--accent) !important;
+}
+#learn .read-tab-btn.active {
+  background: var(--surface) !important;
+  border-color: var(--line) var(--line) var(--surface) !important;
+  color: var(--accent) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.03) !important;
+}
+#learn .read-tab-btn .tab-badge {
+  font-size: 11px !important;
+  padding: 1px 6px !important;
+  border-radius: 4px !important;
+  background: var(--surface-2) !important;
+  color: var(--ink-3) !important;
+}
+#learn .read-tab-btn.active .tab-badge {
+  background: var(--accent-soft) !important;
+  color: var(--accent) !important;
+  font-weight: 700 !important;
+}
+#learn .read-panes-body {
+  flex: 1 !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow-y: auto !important;
+  padding: 14px 18px !important;
+}
+#learn .read-pane {
+  display: none !important;
+}
+#learn .read-pane.active {
+  display: block !important;
+}
+#learn .pane-headline {
+  margin-bottom: 12px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px dashed var(--line) !important;
+}
+#learn .pane-badge {
+  display: inline-block !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  color: var(--accent) !important;
+  background: var(--accent-soft) !important;
+  padding: 2px 8px !important;
+  border-radius: 4px !important;
+  margin-bottom: 6px !important;
+  letter-spacing: 0.05em !important;
+}
+#learn .pane-h {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: var(--ink) !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+#learn .pane-desc {
+  font-size: 14.5px !important;
+  line-height: 1.75 !important;
+  color: var(--ink) !important;
+}
+#learn .read-para {
+  margin: 0 0 12px !important;
+}
+#learn .read-bullet-list {
+  margin: 0 0 12px !important;
+  padding-left: 20px !important;
+}
+#learn .read-bullet-list li {
+  margin-bottom: 6px !important;
+}
+#learn .read-bullet-list li strong {
+  color: var(--accent) !important;
+  font-weight: 700 !important;
+}
+#learn .note-details {
+  margin-top: 14px !important;
+  padding: 8px 12px !important;
+  background: var(--surface-2) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 6px !important;
+  flex-shrink: 0 !important;
+}
+#learn .note-details summary {
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  color: var(--ink-2) !important;
+  cursor: pointer !important;
+}
+#learn #note-ta {
+  width: 100% !important;
+  height: 60px !important;
+  margin-top: 6px !important;
+  padding: 6px 8px !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 4px !important;
+  font-size: 13px !important;
+  resize: vertical !important;
+  background: var(--surface) !important;
+  color: var(--ink) !important;
+  box-sizing: border-box !important;
+}
+#learn .note-status {
+  font-size: 11px !important;
+  color: var(--ink-3) !important;
+  margin-top: 4px !important;
+  text-align: right !important;
+}
+#learn .lnav {
+  padding: 8px 14px !important;
+  background: var(--surface-2) !important;
+  border-top: 1px solid var(--line) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-shrink: 0 !important;
+}
+
+@media (max-width: 900px) {
+  #learn .learn-workspace {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  #learn .learn-sidebar {
+    height: auto !important;
+    max-height: none !important;
+    margin-bottom: 12px !important;
+  }
+  #learn .learn-sidebar > summary {
+    display: block !important;
+    cursor: pointer !important;
+    font-weight: 600 !important;
+    padding: 8px 4px !important;
+  }
+  #learn .lcard {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  #learn .lbody {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: visible !important;
+  }
+  #learn .lfig {
+    min-height: 280px !important;
+    height: 42vh !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--line) !important;
+  }
+  #learn .learn-main-img {
+    max-height: 38vh !important;
+  }
+  #learn .read-panes-body {
+    overflow: visible !important;
+    max-height: none !important;
+  }
+}
+"""
+BIO3_TPL = BIO3_TPL.replace('</style>', NEW_LEARN_CSS + '\n</style>')
+
+# 3. 注入全新 JavaScript 實作（圖解高解析原寸、三標籤切換、目錄分組與閱讀追蹤）
+NEW_LEARN_JS = """
+function formatTabContent(text) {
+  if (!text) return '';
+  const paras = text.split(/\\n\\s*\\n/);
+  return paras.map(p => {
+    const rawLines = p.split('\\n').map(l => l.trim()).filter(Boolean);
+    if (!rawLines.length) return '';
+    const isList = rawLines.some(l => /^[0-9]+[、.]/.test(l) || l.startsWith('- ') || l.startsWith('• '));
+    if (isList) {
+      let listHtml = '<ul class="read-bullet-list">';
+      rawLines.forEach(l => {
+        let clean = esc(l.replace(/^[0-9]+[、.]\\s*|^[-•]\\s*/, ''));
+        clean = clean.replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>');
+        listHtml += `<li>${clean}</li>`;
+      });
+      listHtml += '</ul>';
+      return listHtml;
+    } else {
+      let pHtml = esc(rawLines.join('<br>'));
+      pHtml = pHtml.replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>');
+      return `<p class="read-para">${pHtml}</p>`;
+    }
+  }).join('');
+}
+
+function buildToc() {
+  let h = '';
+  GROUPS.forEach(g => {
+    const gTitle = g.title || g.name || '核心單元';
+    const gSub = g.sub ? `<span class="toc-group-sub">${esc(g.sub)}</span>` : '';
+    h += `<div class="toc-group"><div class="toc-group-title">${esc(gTitle)}</div>${gSub}</div>`;
+    LEARN.forEach((c, i) => {
+      if (c.g !== g.id) return;
+      const cId = c.id || c.k || ('learn_' + i);
+      h += `<button type="button" class="toc-item" data-li="${i}">
+        <span class="toc-index">${String(i + 1).padStart(2, '0')}</span>
+        <span class="toc-name">${esc(c.title)}</span>
+        <span class="toc-read" data-read="${cId}"></span>
+      </button>`;
+    });
+  });
+  const tocEl = $('#toc');
+  if (tocEl) {
+    tocEl.innerHTML = h;
+    tocEl.querySelectorAll('.toc-item').forEach(b => {
+      b.onclick = () => {
+        showLearn(+b.dataset.li);
+        if (window.innerWidth < 900) {
+          const sb = $('#learn-sidebar');
+          if (sb) sb.open = false;
+        }
+      };
+    });
+  }
+}
+
+function readState() {
+  const visited = P.visited || [];
+  const n = visited.length;
+  $$('#toc .toc-item').forEach(b => {
+    const c = LEARN[+b.dataset.li];
+    if (!c) return;
+    const cId = c.id || c.k || ('learn_' + b.dataset.li);
+    const isV = visited.includes(cId);
+    const rd = b.querySelector('.toc-read');
+    if (rd) rd.textContent = isV ? '✓' : '';
+    b.setAttribute('aria-current', +b.dataset.li === LI ? 'step' : 'false');
+  });
+  const st = $('#toc-status');
+  if (st) st.textContent = `已瀏覽 ${n} / ${LEARN.length}`;
+  const pr = $('#toc-progress');
+  if (pr) { pr.value = n; pr.max = LEARN.length; }
+}
+
+function showLearn(i, keepScroll) {
+  i = Math.max(0, Math.min(LEARN.length - 1, i));
+  LI = i;
+  stopFlip();
+  closeLB();
+  const c = LEARN[i];
+  const g = GROUPS.find(x => x.id === c.g) || { title: '核心單元', name: '核心單元' };
+  const gTitle = g.title || g.name || '';
+  const cId = c.id || c.k || ('learn_' + i);
+
+  // 1. 產生圖解左側 Figure HTML
+  let fig = '';
+  if (c.k && IMG[c.k]) {
+    fig = `
+      <div class="fig-viewport">
+        <div class="fig-img-box zoomable" tabindex="0" role="button" aria-label="放大圖片 ${esc(c.title)}" onclick="zoom(IMG['${c.k}'], '${esc(c.title)}')">
+          <img class="learn-main-img" src="${IMG[c.k]}" alt="${esc(c.title)}" />
+          <div class="fig-zoom-hint"><span class="zoom-icon">🔍</span> 點擊放大原寸</div>
+        </div>
+        ${c.sub ? `<div class="fig-sub-caption">${esc(c.sub)}</div>` : ''}
+      </div>
+    `;
+  } else if (c.mode === 'flip') {
+    fig = flipHTML(c);
+    if (c.book && c.book.length) fig += `<details class="bookbox"><summary>📖 對照課本圖</summary>${bookHTML(c)}</details>`;
+  } else if (c.mode === 'book') {
+    fig = bookHTML(c);
+    if (c.slides && c.slides.length) fig += `<button class="slidelink" data-showp="${c.slides[0]}">▶ 在簡報模式開啟第 ${c.slides.join('、')} 頁</button>`;
+  }
+
+  // 2. 產生右側導讀解說 Body HTML
+  const note = (P.notes && P.notes[cId]) || '';
+  let body = '';
+
+  if (c.tabs && c.tabs.length > 0) {
+    const tabsNav = `
+      <div class="read-tabs-nav" role="tablist" aria-label="圖解導讀標籤">
+        ${c.tabs.map((t, idx) => `
+          <button type="button" class="read-tab-btn ${idx === 0 ? 'active' : ''}" role="tab" aria-selected="${idx === 0}" aria-controls="pane-${i}-${idx}" id="tab-${i}-${idx}" data-tidx="${idx}">
+            <span class="tab-badge">${esc(t.badge || '核心')}</span>
+            <span class="tab-label">${esc(t.label || ('標籤 ' + (idx + 1)))}</span>
+          </button>
+        `).join('')}
+      </div>
+    `;
+
+    const panes = `
+      <div class="read-panes-body">
+        ${c.tabs.map((t, idx) => `
+          <div class="read-pane ${idx === 0 ? 'active' : ''}" id="pane-${i}-${idx}" role="tabpanel" aria-labelledby="tab-${i}-${idx}">
+            <div class="pane-headline">
+              <span class="pane-badge">${esc(t.badge || '重點導讀')}</span>
+              <h3 class="pane-h">${esc(t.h || t.label || '')}</h3>
+            </div>
+            <div class="pane-desc">
+              ${formatTabContent(t.p)}
+            </div>
+          </div>
+        `).join('')}
+        
+        <details class="note-details"${note ? ' open' : ''}>
+          <summary>📝 我的隨堂筆記（自動儲存於本機）</summary>
+          <textarea id="note-ta" aria-label="隨堂筆記" placeholder="輸入重點註記、課堂筆記或待釐清問題...">${esc(note)}</textarea>
+          <div class="note-status" id="note-st"></div>
+        </details>
+      </div>
+    `;
+
+    body = `<div class="ltext custom-tabs-ltext">${tabsNav}${panes}</div>`;
+  } else {
+    const oldHtml = c.html || `<p>${esc(c.desc || '')}</p>`;
+    const questionHtml = c.q ? `<div class="learning-question"><div class="question-label">想一想</div><p>${esc(c.q)}</p><details><summary>展開提示</summary><div class="thinking-answer">${esc(c.a || '')}</div></details></div>` : '';
+    body = `<div class="ltext">${oldHtml}${questionHtml}
+      <details class="note-details"${note ? ' open' : ''}><summary>我的筆記（選填，只存在這台裝置）</summary><textarea id="note-ta" aria-label="筆記">${esc(note)}</textarea><div class="note-status" id="note-st"></div></details></div>`;
+  }
+
+  // 3. 填入 #lcard
+  const lhead = `
+    <div class="lhead">
+      <div class="lhead-meta">
+        <span class="num">${String(i + 1).padStart(2, '0')} / ${LEARN.length}</span>
+        <span class="lsec">${esc(gTitle)}</span>
+      </div>
+      <h2 tabindex="-1">${esc(c.title)}</h2>
+      ${c.desc ? `<p class="lhead-desc">${esc(c.desc)}</p>` : ''}
+    </div>
+  `;
+
+  $('#lcard').innerHTML = `
+    ${lhead}
+    <div class="lbody">${fig ? `<div class="lfig">${fig}</div>` : ''}${body}</div>
+  `;
+
+  // 4. 綁定三標籤點擊切換事件
+  if (c.tabs && c.tabs.length > 0) {
+    const cardEl = $('#lcard');
+    const tabBtns = cardEl.querySelectorAll('.read-tab-btn');
+    const paneEls = cardEl.querySelectorAll('.read-pane');
+    tabBtns.forEach(btn => {
+      btn.onclick = () => {
+        const tidx = +btn.dataset.tidx;
+        tabBtns.forEach((b, idx) => {
+          b.classList.toggle('active', idx === tidx);
+          b.setAttribute('aria-selected', idx === tidx);
+        });
+        paneEls.forEach((p, idx) => {
+          p.classList.toggle('active', idx === tidx);
+        });
+      };
+    });
+  } else {
+    lessonTabs();
+  }
+
+  // 5. Flip 與簡報跳轉
+  const fl = $('#lcard .flip');
+  if (fl) initFlip(fl);
+  $$('#lcard [data-showp]').forEach(b => b.onclick = () => openShow(frameIdx(+b.dataset.showp, 0), 0));
+
+  // 6. 筆記儲存
+  const ta = $('#note-ta');
+  if (ta) {
+    ta.oninput = () => {
+      if (!P.notes) P.notes = {};
+      P.notes[cId] = ta.value;
+      saveP();
+      const st = $('#note-st');
+      if (st) st.textContent = '已儲存 ' + new Date().toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' });
+    };
+  }
+
+  // 7. 記錄瀏覽紀錄
+  if (!P.visited) P.visited = [];
+  if (!P.visited.includes(cId)) P.visited.push(cId);
+  P.last = cId;
+  saveP();
+  readState();
+
+  // 8. 底部切換按鈕狀態
+  const prevBtn = $('#l-prev');
+  if (prevBtn) prevBtn.disabled = (i === 0);
+  const nextBtn = $('#l-next');
+  if (nextBtn) {
+    nextBtn.textContent = (i === LEARN.length - 1) ? '前往互動練習 →' : '下一張 →';
+  }
+  const posEl = $('#l-pos');
+  if (posEl) posEl.textContent = `${i + 1} / ${LEARN.length}`;
+
+  const fsPrev = $('#fs-prev');
+  if (fsPrev) fsPrev.disabled = (i === 0);
+  const fsNext = $('#fs-next');
+  if (fsNext) fsNext.disabled = (i === LEARN.length - 1);
+  const fsPos = $('#fs-position');
+  if (fsPos) fsPos.textContent = `${i + 1} / ${LEARN.length}`;
+
+  if (!keepScroll && !inLearnFS()) {
+    const t = $('#lcard');
+    if (t) {
+      const top = t.getBoundingClientRect().top + window.scrollY - (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--site-head-height')) || 72) - 10;
+      if (window.scrollY > top) window.scrollTo(0, top);
+    }
+  }
+  if (typeof readSizes === 'function') requestAnimationFrame(readSizes);
+}
+"""
+
+# 定位並替換舊版 buildToc 至 initFlip 前的區塊
+m1 = BIO3_TPL.find('function buildToc()')
+m2 = BIO3_TPL.find('function initFlip(fl)', m1)
+if m1 != -1 and m2 != -1:
+    BIO3_TPL = BIO3_TPL[:m1] + NEW_LEARN_JS.strip() + '\n\n' + BIO3_TPL[m2:]
+else:
+    raise RuntimeError("無法定位舊版 buildToc / showLearn 區塊進行置換！")
+
+
 def process_bio3_unit(ch_folder, site_title, chapter_code, key_prefix, crops_spec, groups, learn_data, qs_data, drag_bgs, tags, speech_dict=None, titles_dict=None, use_pdf_slides=True):
     print(f"\n=======================================================")
     print(f"Building Elective Bio 3 Unit: {chapter_code} - {site_title} ({ch_folder})")
@@ -305,11 +997,14 @@ const TAGS = {json.dumps(tags, ensure_ascii=False)};
 const fs = require('fs');
 const html = fs.readFileSync('""" + out_main + """', 'utf8');
 const scriptMatches = [...html.matchAll(/<script[\\s\\S]*?>([\\s\\S]*?)<\\/script>/gi)];
+let innerMap = {};
 const elements = {};
 function getEl(id) {
   if (!elements[id]) {
     elements[id] = {
       id,
+      get innerHTML() { return innerMap[id] || ''; },
+      set innerHTML(val) { innerMap[id] = val; },
       classList: { _classes: new Set(), toggle(c, v) { if(v===undefined){if(this._classes.has(c))this._classes.delete(c);else this._classes.add(c);}else{if(v)this._classes.add(c);else this._classes.delete(c);} }, add(c){this._classes.add(c);}, remove(c){this._classes.delete(c);}, contains(c){return this._classes.has(c);} },
       attributes: {}, dataset: { pos: '0', flip: '[[1,0,1,"step_001"]]' },
       textContent: '', matches(s){return false;}, nodeType: 1,
@@ -341,15 +1036,24 @@ const ctx = vm.createContext({
   addEventListener: (...args)=>mockWin.addEventListener(...args)
 });
 
-for(let i=0; i<scriptMatches.length; i++) {
-  vm.runInContext(scriptMatches[i][1], ctx);
-}
+const combined = scriptMatches.map(m => m[1]).join(';\\n');
+vm.runInContext(combined, ctx);
+
 ctx.window.__BM.go('play');
 for(let i=0; i<""" + str(len(qs_data)) + """; i++) ctx.window.__BM.renderQ(i);
 ctx.window.__BM.go('learn');
-for(let i=0; i<""" + str(len(learn_data)) + """; i++) ctx.window.__BM.showLearn(i);
+const tocHtml = innerMap['toc'] || '';
+if(tocHtml.includes('undefined')) throw new Error('TOC HTML contains undefined');
+
+for(let i=0; i<""" + str(len(learn_data)) + """; i++) {
+  ctx.window.__BM.showLearn(i);
+  const cardHtml = innerMap['lcard'] || '';
+  if(cardHtml.includes('undefined')) throw new Error('Card ' + i + ' contains undefined');
+  if(!cardHtml.includes('learn-main-img')) throw new Error('Card ' + i + ' missing learn-main-img');
+  if(!cardHtml.includes('read-tabs-nav')) throw new Error('Card ' + i + ' missing read-tabs-nav');
+}
 ctx.window.__BM.openShow(0);
-console.log('>>> VERIFICATION PASSED FOR """ + chapter_code + """! <<<');
+console.log('>>> VERIFICATION PASSED FOR """ + chapter_code + """: TOC & ' + """ + str(len(learn_data)) + """ + ' LEARN CARDS WITH HIGH-RES IMAGES & 3 TABS 100% VERIFIED! <<<');
 """
     tmp_test = f'/tmp/verify_{key_prefix}.js'
     with open(tmp_test, 'w', encoding='utf-8') as tf: tf.write(test_js)
