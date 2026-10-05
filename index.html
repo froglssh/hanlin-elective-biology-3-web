@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高中選修生物(Ⅲ) 全單元互動教學網頁總覽站 | 翰林版</title>
+<style>
+  :root {
+    --primary: #9e1c3f;
+    --primary-dark: #4c0519;
+    --primary-light: #be123c;
+    --accent: #c05621;
+    --bg: #fbf8f5;
+    --card-bg: #ffffff;
+    --text: #2b191d;
+    --text-muted: #70585e;
+    --border: #e8ded8;
+    --shadow: 0 4px 16px rgba(76, 5, 25, 0.06);
+    --shadow-hover: 0 8px 24px rgba(76, 5, 25, 0.14);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding-bottom: 60px;
+  }
+
+  header {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #b91c1c 100%);
+    color: #fff;
+    padding: 48px 24px 40px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(76, 5, 25, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f43f5e, #fb7185, #f59e0b, #10b981);
+  }
+  header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  header p {
+    font-size: 1.05rem;
+    opacity: 0.94;
+    max-width: 780px;
+    margin: 0 auto 20px;
+  }
+
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .stat-item {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.25);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 36px auto 0;
+    padding: 0 20px;
+  }
+
+  .search-box {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+  }
+  .search-box input {
+    width: 100%;
+    max-width: 640px;
+    padding: 14px 22px;
+    font-size: 1.05rem;
+    border: 2px solid var(--border);
+    border-radius: 30px;
+    outline: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    background: #fff;
+  }
+  .search-box input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 4px 16px rgba(158, 28, 63, 0.2);
+  }
+
+  .chapter-group {
+    margin-bottom: 40px;
+  }
+  .chapter-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 20px;
+    padding-left: 14px;
+    border-left: 5px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-light);
+  }
+  .card-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--primary);
+    background: #fde8ed;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .card-tag.lab {
+    color: #0369a1;
+    background: #e0f2fe;
+  }
+  .card h3 {
+    font-size: 1.25rem;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .card p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+    flex: 1;
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    margin-bottom: 16px;
+  }
+  .card-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .btn-group {
+    display: flex;
+    gap: 10px;
+  }
+  .btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: var(--primary-dark);
+  }
+  .btn-lab {
+    background: #0284c7;
+    color: #fff;
+  }
+  .btn-lab:hover {
+    background: #0369a1;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    padding: 24px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.6rem; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>高中選修生物(Ⅲ) 全單元互動教學網頁</h1>
+  <p>翰林版選修生物(Ⅲ) 動物構造與生理機能 · 體內恆定 · 循環 · 消化 · 呼吸 · 排泄 · 神經 · 內分泌 · 免疫 · 生殖與胚胎發育 · 全套 26 個超優質線上學習平台</p>
+  <div class="stats-bar">
+    <div class="stat-item">全 6 大章節 18 小節完整收錄</div>
+    <div class="stat-item">全 8 大探討活動實驗室直達</div>
+    <div class="stat-item">200+ 高清圖解與動畫影格</div>
+    <div class="stat-item">200+ 多元互動練習題庫（拖放/單選/多選）</div>
+    <div class="stat-item">100% 手機與電腦響應式適配</div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="搜尋單元名稱、生理機制、關鍵字（如：心臟、腎元、神經元、免疫、抗體、胚胎...）" oninput="filterCards()">
+  </div>
+
+  <!-- 第 1 章 -->
+  <div class="chapter-group">
+    <div class="chapter-title">
+      <span>第 1 章 · 動物體的組成與恆定性</span>
+    </div>
+    <div class="grid">
+
+      <div class="card" data-keywords="1-1 1-1 動物組織的構造與功能 動物組織探險館 上皮組織 肌肉組織 神經組織 結締組織 骨骼肌 心肌 平滑肌 肌腱 韌帶">
+        <div>
+          <span class="card-tag">CH1-1</span>
+          <h3>動物組織探險館（動物組織的構造與功能）</h3>
+          <p>掌握上皮、肌肉、神經與結締四大組織微觀形態特化與機能分工，解析肌腱、韌帶與各類特化間質。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 7 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch1-1/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="1-2 1-2 恆定的生理意義與重要性 恆定平衡觀測站 內環境 細胞外液 組織液 血漿 負回饋 正回饋 體溫 血糖">
+        <div>
+          <span class="card-tag">CH1-2</span>
+          <h3>恆定平衡觀測站（恆定的生理意義與重要性）</h3>
+          <p>剖析細胞內外液與內環境穩態，探討下視丘體溫調控、胰島素與升糖素拮抗，以及正負回饋生理控制網絡。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 6 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch1-2/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 第 2 章 -->
+  <div class="chapter-group">
+    <div class="chapter-title">
+      <span>第 2 章 · 循環與消化</span>
+    </div>
+    <div class="grid">
+
+      <div class="card" data-keywords="2-1 2-1 循環系統 循環系統運籌館 心臟 心動週期 房室瓣 半月瓣 體循環 肺循環 微血管 淋巴系統 血壓 脈搏">
+        <div>
+          <span class="card-tag">CH2-1</span>
+          <h3>循環系統運籌館（循環系統）</h3>
+          <p>深入心臟解剖動力學、心動週期壓力流體力學、雙循環路徑、微血管物質交換及淋巴回流循環防線。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 8 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch2-1/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="2-2 2-2 消化系統 消化吸收智慧驛站 口腔 胃 小腸 大腸 胰液 膽汁 酵素 吸收 微絨毛 脂質 乳糜微粒">
+        <div>
+          <span class="card-tag">CH2-2</span>
+          <h3>消化吸收智慧驛站（消化系統）</h3>
+          <p>全面解析消化道管腔運動、各類水解酵素化學分解、小腸絨毛主動運輸與乳糜管微粒吸收機制。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 8 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch2-2/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 第 3 章 -->
+  <div class="chapter-group">
+    <div class="chapter-title">
+      <span>第 3 章 · 呼吸與排泄</span>
+    </div>
+    <div class="grid">
+
+      <div class="card" data-keywords="3-1 3-1 呼吸系統 呼吸氣體交換中心 氣管 肺泡 肋間肌 橫膈膜 負壓呼吸 氧解離曲線 碳酸氫根 延腦 橋腦 化學受器">
+        <div>
+          <span class="card-tag">CH3-1</span>
+          <h3>呼吸氣體交換中心（呼吸系統）</h3>
+          <p>解析胸腔容積力學負壓進氣、肺泡微血管氣體分壓擴散、血紅素氧合曲線及延腦化學受器神經反射。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 7 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch3-1/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="3-2 3-2 排泄系統 泌尿排泄恆定工房 腎臟 腎元 腎絲球 鮑氏囊 濾過 再吸收 分泌 ADH 醛固酮 RAAS 滲透壓">
+        <div>
+          <span class="card-tag">CH3-2</span>
+          <h3>泌尿排泄恆定工房（排泄系統）</h3>
+          <p>解構腎元逆流倍增系統、三步驟造尿機轉、抗利尿激素(ADH)水分回收與腎素-血管收縮素-醛固酮(RAAS)調控。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 8 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch3-2/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 第 4 章 -->
+  <div class="chapter-group">
+    <div class="chapter-title">
+      <span>第 4 章 · 神經、受器、運動與內分泌</span>
+    </div>
+    <div class="grid">
+
+      <div class="card" data-keywords="4-1 4-1 神經系統 神經調節樞紐站 靜止膜電位 動作電位 去極化 鈉鉀幫浦 突觸 傳導物質 大腦 小腦 脊髓 自主神經">
+        <div>
+          <span class="card-tag">CH4-1</span>
+          <h3>神經調節樞紐站（神經系統）</h3>
+          <p>電生理極致探究：離子通道門控、跳躍傳導、化學突觸遞質釋放、中樞大腦皮質分區與交感/副交感拮抗。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 8 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch4-1/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="4-2 4-2 體內的受器 體內受器感知廊 眼睛 視網膜 視桿細胞 視錐細胞 耳朵 耳蝸 半規管 前庭 聽覺 平衡覺 味覺 嗅覺">
+        <div>
+          <span class="card-tag">CH4-2</span>
+          <h3>體內受器感知廊（體內的受器）</h3>
+          <p>感官物理化學轉化：視紫質光解、柯蒂氏器毛細胞機械去極化、半規管淋巴流動感應旋轉與化學感覺。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 7 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch4-2/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="4-3 4-3 肌肉與骨骼 骨骼肌肉動力所 骨骼 關節 肌小節 肌動蛋白 肌凝蛋白 肌漿網 鈣離子 ATP 滑行學說 興奮收縮偶聯">
+        <div>
+          <span class="card-tag">CH4-3</span>
+          <h3>骨骼肌肉動力所（肌肉與骨骼）</h3>
+          <p>運動力學微觀探秘：肌小節明暗帶橫紋、鈣離子引發肌旋轉素位移、橫橋水解 ATP 滑行產生張力。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 7 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch4-3/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="4-4 4-4 內分泌系統 內分泌訊號調度站 激素 下視丘 腦下垂體 甲狀腺 腎上腺 胰島 類固醇 胜肽 第二傳訊者 負回饋">
+        <div>
+          <span class="card-tag">CH4-4</span>
+          <h3>內分泌訊號調度站（內分泌系統）</h3>
+          <p>體液化學通訊網絡：下視丘-垂體軸聯級放大、水溶性胜肽受體(cAMP) vs 脂溶性類固醇受體基因表現調控。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 8 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch4-4/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 第 5 章 -->
+  <div class="chapter-group">
+    <div class="chapter-title">
+      <span>第 5 章 · 人體的防禦機制</span>
+    </div>
+    <div class="grid">
+
+      <div class="card" data-keywords="5-1 5-1 免疫系統 免疫防禦作戰部 淋巴器官 骨髓 胸腺 淋巴結 脾臟 淋巴球 B細胞 T細胞 白血球">
+        <div>
+          <span class="card-tag">CH5-1</span>
+          <h3>免疫防禦作戰部（免疫系統）</h3>
+          <p>認識初級淋巴器官成熟與次級淋巴器官駐防、各類白血球細胞譜系分化及免疫監控巡邏路線。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 7 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch5-1/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="5-2 5-2 先天性免疫 先天防線衛戍站 皮膚 黏膜 吞噬作用 嗜中性球 巨噬細胞 發炎反應 組織胺 補體 干擾素">
+        <div>
+          <span class="card-tag">CH5-2</span>
+          <h3>先天防線衛戍站（先天性免疫）</h3>
+          <p>非專一性防衛前線：皮膜物理化學屏障、發炎反應紅腫熱痛機制、補體膜攻擊複合物與抗病毒干擾素。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 7 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch5-2/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="5-3 5-3 後天性免疫 特異性免疫兵工廠 抗原呈現 APC 輔助T細胞 Th 細胞毒性T細胞 Tc B細胞 漿細胞 抗體 體液免疫 細胞介導免疫 記憶細胞">
+        <div>
+          <span class="card-tag">CH5-3</span>
+          <h3>特異性免疫兵工廠（後天性免疫）</h3>
+          <p>精準精確打擊：MHC 抗原呈現、Th 細胞因子協調指揮、Tc 穿孔素引發細胞凋亡與 B 細胞抗體體液免疫。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 8 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch5-3/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="5-4 5-4 免疫失調與排斥 免疫調控與醫療探索坊 過敏 IgE 組織胺 自體免疫疾病 紅斑性狼瘡 免疫缺乏 愛滋病 HIV 疫苗 器官移植">
+        <div>
+          <span class="card-tag">CH5-4</span>
+          <h3>免疫調控與醫療探索坊（免疫失調與排斥）</h3>
+          <p>醫學病理深度探究：第一型過敏性休克、自體免疫耐受崩解、HIV 感染 Th 耗竭、器官移植排斥與疫苗防禦。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 7 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch5-4/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 第 6 章 -->
+  <div class="chapter-group">
+    <div class="chapter-title">
+      <span>第 6 章 · 生殖與胚胎發育</span>
+    </div>
+    <div class="grid">
+
+      <div class="card" data-keywords="6-1 6-1 生殖系統 生殖器官奧秘館 睪丸 曲細精管 副睪 輸精管 儲精囊 攝護腺 卵巢 輸卵管 子宮 陰道">
+        <div>
+          <span class="card-tag">CH6-1</span>
+          <h3>生殖器官奧秘館（生殖系統）</h3>
+          <p>男女性解剖構造與配子輸出通道、外分泌附屬腺液成分及生殖構造之微觀組織學特徵。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 7 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch6-1/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="6-2 6-2 配子的形成 配子生成與週期演繹驛站 精子發生 卵子發生 減數分裂 濾泡期 排卵 黃體期 雌激素 黃體素 LH FSH 月經週期">
+        <div>
+          <span class="card-tag">CH6-2</span>
+          <h3>配子生成與週期演繹驛站（配子的形成）</h3>
+          <p>精卵發生減數分裂極體差異、腦垂體 LH/FSH 峰值誘發排卵、黃體萎縮與子宮內膜脫落之激素回饋動態。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 8 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch6-2/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="6-3 6-3 受精過程 受精機制探索站 精子獲能 頂體反應 透明帶 皮層反應 慢阻反應 原核融合 受精卵">
+        <div>
+          <span class="card-tag">CH6-3</span>
+          <h3>受精機制探索站（受精過程）</h3>
+          <p>單精入卵微觀機制：頂體水解酶穿透放射冠與透明帶、精卵質膜融合激發鈣波、皮層顆粒胞吐防止多精入卵。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 6 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch6-3/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="6-4 6-4 胚胎發育與懷孕 生命孕育胚胎發育長廊 卵裂 桑葚胚 囊胚 著床 胚外膜 羊膜 絨毛膜 胎盤 hCG 催產素 分娩正回饋">
+        <div>
+          <span class="card-tag">CH6-4</span>
+          <h3>生命孕育胚胎發育長廊（胚胎發育與懷孕）</h3>
+          <p>生命奇蹟全歷程：囊胚著床、四大胚外膜演化適應、胎盤母胎血液非混合對流交換、hCG 驗孕與分娩正回饋。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 8 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="ch6-4/index.html" class="btn btn-primary">進入網頁學習</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 探討活動專區 -->
+  <div class="chapter-group">
+    <div class="chapter-title">
+      <span>🔬 探討活動實驗室 · 探究與實作專區</span>
+    </div>
+    <div class="grid">
+
+      <div class="card" data-keywords="探討活動 1-1 動物組織的觀察 動物組織顯微觀察工坊 顯微鏡 切片 鱗狀上皮 立方上皮 柱狀上皮 橫紋肌 軟骨細胞 血球">
+        <div>
+          <span class="card-tag lab">探討活動 1-1</span>
+          <h3>動物組織顯微觀察工坊（動物組織的觀察）</h3>
+          <p>顯微鏡下四大組織特徵切片鑑賞：複層扁平耐磨上皮、軟骨陷窩同心間質、橫紋肌帶與血球抹片觀察。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 6 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="lab1-1/index.html" class="btn btn-lab">進入實驗室學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="探討活動 2-1 心臟的觀察 心臟解剖解密實驗室 豬心 冠狀動脈 房室瓣 三尖瓣 二尖瓣 半月瓣 腱索 乳頭肌 心室壁厚度">
+        <div>
+          <span class="card-tag lab">探討活動 2-1</span>
+          <h3>心臟解剖解密實驗室（心臟的觀察）</h3>
+          <p>真實豬心解剖探索：分辨左右心房心室心壁厚度、腱索與乳頭肌抗外翻力學、半月瓣防倒流結構驗證。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 6 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="lab2-1/index.html" class="btn btn-lab">進入實驗室學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="探討活動 3-1 腎臟的觀察 腎臟解剖觀察工作坊 豬腎 皮質 髓質 腎盂 輸尿管 腎錐體 顯微鏡 腎小體 鮑氏囊 腎絲球">
+        <div>
+          <span class="card-tag lab">探討活動 3-1</span>
+          <h3>腎臟解剖觀察工作坊（腎臟的觀察）</h3>
+          <p>豬腎縱剖面肉眼與放大鏡觀察：紅褐色皮質顆粒、淡色髓質放射狀腎錐體、白色漏斗狀腎盂與腎小體顯微構造。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 6 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="lab3-1/index.html" class="btn btn-lab">進入實驗室學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="探討活動 4-1 肌肉與骨骼的運作 肌骨連動實作探秘 雞翅 解剖 二頭肌 三頭肌 關節 韌帶 肌腱 拮抗肌 槓桿">
+        <div>
+          <span class="card-tag lab">探討活動 4-1</span>
+          <h3>肌骨連動實作探秘（肌肉與骨骼的運作）</h3>
+          <p>生鮮雞翅實體解剖：拉動二頭肌與三頭肌觀察翅膀屈曲與伸展、關節囊滑液減磨與白色緻密肌腱力學傳遞。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 6 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="lab4-1/index.html" class="btn btn-lab">進入實驗室學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="探討活動 5-1 ABO血型的鑑定 血型凝集抗原抗體實驗室 ABO 抗原 抗體 凝集 抗A血清 抗B血清 輸血原則 玻片法">
+        <div>
+          <span class="card-tag lab">探討活動 5-1</span>
+          <h3>血型凝集抗原抗體實驗室（ABO血型鑑定）</h3>
+          <p>抗原抗體凝集反應實作判讀：以抗A與抗B標準血清檢測紅血球表面凝集原、推論 ABO 血型及安全輸血配對原則。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 6 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="lab5-1/index.html" class="btn btn-lab">進入實驗室學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="探討活動 6-1 生殖腺與生殖細胞的觀察 生殖細胞顯微鑑賞坊 睪丸 卵巢 切片 曲細精管 精子 濾泡 卵母細胞 減數分裂">
+        <div>
+          <span class="card-tag lab">探討活動 6-1</span>
+          <h3>生殖細胞顯微鑑賞坊（生殖腺與生殖細胞）</h3>
+          <p>哺乳類睪丸與卵巢玻片標本顯微鏡觀察：曲細精管管壁各級精細胞排列、成熟格拉夫濾泡與次級卵母細胞構造。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 6 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="lab6-1/index.html" class="btn btn-lab">進入實驗室學習</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="探討活動 6-2 代理孕母的倫理與法律問題 代孕倫理思辨論壇 代理孕母 人工生殖 倫理 法律 商業代孕 兒童最佳利益 自主權">
+        <div>
+          <span class="card-tag lab">探討活動 6-2</span>
+          <h3>代孕倫理思辨論壇（代孕倫理與法律）</h3>
+          <p>跨領域素養思辨：人工生殖技術進展、代理孕母合法化爭端、身體商品化疑慮、親權歸屬與兒童最佳利益評估。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 6 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="lab6-2/index.html" class="btn btn-lab">進入思辨論壇</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" data-keywords="探討活動 6-3 蛙外部形態及內部構造的觀察 青蛙解剖比較生物學館 蛙 解剖 鼓膜 瞬膜 鳴囊 三腔心 肺 皮膚呼吸 消化系統 泄殖腔">
+        <div>
+          <span class="card-tag lab">探討活動 6-3</span>
+          <h3>青蛙解剖比較生物學館（蛙外形與內部構造）</h3>
+          <p>脊椎動物比較解剖學：兩棲類外形特化、兩心房一心室混合循環、肺與皮膚雙重呼吸、消化道與泄殖腔共通開口。</p>
+        </div>
+        <div>
+          <div class="card-meta">
+            <span>📊 圖解 6 組</span>
+            <span>📝 題庫 8 題</span>
+          </div>
+          <div class="btn-group">
+            <a href="lab6-3/index.html" class="btn btn-lab">進入實驗室學習</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 高中生物教學網頁開發團隊 · 翰林版選修生物(Ⅲ) 全單元互動網頁課程系統</p>
+</footer>
+
+<script>
+  function filterCards() {
+    const query = document.getElementById('searchInput').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      const keywords = card.getAttribute('data-keywords').toLowerCase();
+      if (!query || keywords.includes(query)) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+</body>
+</html>

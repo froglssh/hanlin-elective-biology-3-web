@@ -28,3 +28,6 @@
 node_modules/
 /private/tmp/
 *.log
+__pycache__/
+*.pyc
+
