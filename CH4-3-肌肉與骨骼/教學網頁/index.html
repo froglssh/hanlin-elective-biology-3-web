@@ -1033,7 +1033,7 @@ body:has(#play:not(.hidden)) .tool-btn{height:34px;width:34px;font-size:15px}
 <section id="video" class="hidden" aria-labelledby="video-title">
  <div class="lhome"><div class="home-actions"><button class="homebtn" data-gohome>回首頁</button></div><span class="lhtitle">教學影片</span></div>
  <div class="video-heading"><span class="edition">TEACHING VIDEO</span><h1 id="video-title" tabindex="-1">生物膜的構造與功能</h1><p>42 頁圖解簡報搭配逐頁旁白：從細胞膜模型的發展，到內膜系統的分工。</p></div>
- <div class="video-player"><video id="teaching-video" controls preload="none" playsinline></video><div class="video-msg hidden" id="video-msg"></div></div>
+ <div class="video-player" style="position:relative;width:100%;padding-top:56.25%;background:#000;border-radius:12px;overflow:hidden"><iframe id="teaching-video" src="" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe><div class="video-msg hidden" id="video-msg"></div></div>
  <div class="video-actions"><span id="video-note">影片檔與本網頁放在同一個課程資料夾（教學影片／）。</span><span id="video-link"></span></div>
 </section>
 </main>
@@ -1139,8 +1139,8 @@ const TAGS = [{"label": "關節力學", "bg": "#fde8ed", "text": "#9e1c3f"}, {"l
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const KEY='ch4-3.quiz.v1',PKEY='ch4-3.prefs.v1',REVEAL_N=5;
-const VIDEO_SRC='../教學影片/CH4-3_肌肉與骨骼_教學影片.mp4';
-const VIDEO_URL=''; // 若日後上傳雲端，可填入公開網址作為備援連結
+const VIDEO_SRC='https://drive.google.com/file/d/1iiWEFENT_sFKvtLsetScMV8aPo-cQ6Fx/preview';
+const VIDEO_URL='https://drive.google.com/file/d/1iiWEFENT_sFKvtLsetScMV8aPo-cQ6Fx/view?usp=drivesdk'; // 若日後上傳雲端，可填入公開網址作為備援連結
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 function toast(m){let t=$('.toast');if(!t){t=document.createElement('div');t.className='toast';t.setAttribute('role','status');document.body.appendChild(t)}t.textContent=m;t.classList.remove('hidden');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.add('hidden'),2600)}
 
@@ -1512,7 +1512,7 @@ document.addEventListener('keydown',e=>{
 function startVideo(){const v=$('#teaching-video'),m=$('#video-msg');m.classList.add('hidden');v.src=VIDEO_SRC;v.load();
  v.onerror=()=>{m.innerHTML='找不到影片檔。<br>請從課程資料夾開啟本網頁，並確認「教學影片」資料夾內有<br>《CH4-3_肌肉與骨骼_教學影片.mp4》。';m.classList.remove('hidden')};
  $('#video-link').innerHTML=VIDEO_URL?`<a class="btn ghost" href="${VIDEO_URL}" target="_blank" rel="noopener">另開影片 ↗</a>`:''}
-function stopVideo(){const v=$('#teaching-video');try{v.pause()}catch(e){}v.removeAttribute('src');v.load()}
+function stopVideo(){const v=$('#teaching-video');if(v){if(v.tagName==='IFRAME')v.src='about:blank';else{try{v.pause()}catch(e){}v.removeAttribute('src');try{v.load()}catch(e){}}}}
 
 /* ---------- 互動練習：狀態 ---------- */
 const N=QS.length;
