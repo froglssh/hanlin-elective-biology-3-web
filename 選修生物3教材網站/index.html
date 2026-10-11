@@ -1,492 +1,117 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>翰林版 高中選修生物（Ⅲ）互動教學網站</title>
-  <meta name="description" content="翰林版高中選修生物（Ⅲ）動物體的構造與功能全套互動教材網站。涵蓋動物組織恆定、循環消化、呼吸排泄、神經受器與肌肉、免疫防禦及生殖發育。內建 Google Drive 教學影片與高清課本圖解。">
-  <link rel="icon" href="img/hanlin-logo.png">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="app.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>翰林版 選修生物（Ⅲ）｜互動教學網站</title>
+<meta name="description" content="翰林版高中選修生物Ⅲ（全）六章 18 節與 8 個探討活動的互動教學網頁與教學影片入口">
+<meta name="theme-color" content="#9e1c3f">
+<link rel="icon" href="img/hanlin-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
-<body>
-
-  <!-- 頂部導覽列 -->
-  <header class="site-header">
-    <div class="nav-container">
-      <a href="index.html" class="nav-brand">
-        <img src="img/hanlin-logo-wide.png" alt="翰林出版" class="brand-logo">
-        <div class="brand-divider"></div>
-        <div class="brand-title">
-          <span class="series-name">108課綱 高中生物</span>
-          <span class="page-name">選修生物（Ⅲ）教材網站</span>
+<body class="home">
+<header class="hero">
+  <svg class="globe" viewBox="0 0 600 600" aria-hidden="true">
+    <g fill="none" stroke="currentColor" stroke-width="1.2">
+      <path d="M0 330h150l30-60 40 150 50-260 45 220 30-50h255" stroke-width="3"/>
+      <circle cx="300" cy="300" r="290" stroke-dasharray="10 8" opacity=".5"/>
+    </g>
+  </svg>
+  <div class="hero-in">
+    <img class="hero-logo" src="img/hanlin-logo-wide.png" alt="翰林出版 HAN LIN PUBLISHING" width="1240" height="324">
+    <div class="hero-rule"><span></span><em>自然科學領域　加深加廣選修</em><span></span></div>
+    <h1>選修生物（Ⅲ）<span>互動教學網站</span></h1>
+    <p class="hero-sub">翰林版《選修生物Ⅲ（全）》· 從動物組織與恆定，到循環、消化、呼吸、排泄、感應、防禦與生殖，每一節都有專屬的互動闖關網頁與教學影片</p>
+    <ul class="stats">
+      <li><b>6</b><span>章</span></li><li><b>18</b><span>節正課</span></li><li><b>8</b><span>個探討活動</span></li><li><b>26</b><span>個互動網頁</span></li>
+    </ul>
+  </div>
+</header>
+<main>
+  <section class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">CHAPTERS</span><h2>選擇章節，開始探索</h2><p>點選章節封面進入章節，瀏覽每一節的課本概念圖、重點簡介與教學影片。</p></div>
+    <div class="ch-grid">
+      <a class="ch-card reveal" href="chapter1.html" style="--a:#0d9488;--a2:#2dd4bf;--t:#f0fdfa">
+        <div class="ch-cover"><img src="img/cover1.jpg" alt="第1章 動物體的組成與恆定性 章節封面" loading="lazy" width="1000" height="1328"></div>
+        <div class="ch-body">
+          <div class="ch-kicker">CHAPTER 01 · Organization &amp; Homeostasis</div>
+          <h2>第 1 章　動物體的組成與恆定性</h2>
+          <ul class="ch-list"><li><span>1-1</span>動物組織的構造與功能</li><li><span>1-2</span>恆定的生理意義與重要性</li></ul>
+          <div class="ch-meta"><span>2 節正課</span><span>1 個探討活動</span></div>
+          <span class="ch-go">進入本章 <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
       </a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link active">全冊總覽</a></li>
-          <li><a href="chapter1.html" class="nav-link">第1章</a></li>
-          <li><a href="chapter2.html" class="nav-link">第2章</a></li>
-          <li><a href="chapter3.html" class="nav-link">第3章</a></li>
-          <li><a href="chapter4.html" class="nav-link">第4章</a></li>
-          <li><a href="chapter5.html" class="nav-link">第5章</a></li>
-          <li><a href="chapter6.html" class="nav-link">第6章</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- 橫幅 Hero 區塊 -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-content">
-        <div class="badge">
-          <span>🧬</span> 108課綱 · 動物體的構造與功能 · 全單元精準解析
+      <a class="ch-card reveal" href="chapter2.html" style="--a:#be123c;--a2:#fb7185;--t:#fff1f2">
+        <div class="ch-cover"><img src="img/cover2.jpg" alt="第2章 循環與消化 章節封面" loading="lazy" width="1000" height="1328"></div>
+        <div class="ch-body">
+          <div class="ch-kicker">CHAPTER 02 · Circulation &amp; Digestion</div>
+          <h2>第 2 章　循環與消化</h2>
+          <ul class="ch-list"><li><span>2-1</span>循環系統</li><li><span>2-2</span>消化系統</li></ul>
+          <div class="ch-meta"><span>2 節正課</span><span>1 個探討活動</span></div>
+          <span class="ch-go">進入本章 <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
-        <h1>選修生物（Ⅲ）<br>生命生理機制與動態恆定</h1>
-        <p>
-          從微觀細胞組織的分工協同、神經與內分泌的毫秒訊號調節，到各大器官系統的精密運作與免疫衛戍防禦。本站完整整合全冊 6 大章節、18 個核心主題與 8 大探討活動，內建 Google 雲端高畫質教學影片與互動實作練習！
-        </p>
-        <div class="hero-stats">
-          <div class="stat-item">
-            <div class="stat-number">6</div>
-            <div class="stat-label">全冊章節</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">18</div>
-            <div class="stat-label">核心小節</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">8</div>
-            <div class="stat-label">探討活動</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">26</div>
-            <div class="stat-label">雲端教學影片</div>
-          </div>
+      </a>
+      <a class="ch-card reveal" href="chapter3.html" style="--a:#15803d;--a2:#4ade80;--t:#f0fdf4">
+        <div class="ch-cover"><img src="img/cover3.jpg" alt="第3章 呼吸與排泄 章節封面" loading="lazy" width="1000" height="1328"></div>
+        <div class="ch-body">
+          <div class="ch-kicker">CHAPTER 03 · Respiration &amp; Excretion</div>
+          <h2>第 3 章　呼吸與排泄</h2>
+          <ul class="ch-list"><li><span>3-1</span>呼吸系統</li><li><span>3-2</span>排泄系統</li></ul>
+          <div class="ch-meta"><span>2 節正課</span><span>1 個探討活動</span></div>
+          <span class="ch-go">進入本章 <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-cover-stack">
-          <img src="img/cover1.jpg" alt="選修生物(Ⅲ)課本封面" class="hero-cover-img" data-lightbox>
+      </a>
+      <a class="ch-card reveal" href="chapter4.html" style="--a:#4f46e5;--a2:#818cf8;--t:#eef2ff">
+        <div class="ch-cover"><img src="img/cover4.jpg" alt="第4章 感應 章節封面" loading="lazy" width="1000" height="1328"></div>
+        <div class="ch-body">
+          <div class="ch-kicker">CHAPTER 04 · Sensing &amp; Response</div>
+          <h2>第 4 章　感應</h2>
+          <ul class="ch-list"><li><span>4-1</span>神經系統</li><li><span>4-2</span>體內的受器</li><li><span>4-3</span>肌肉與骨骼</li><li><span>4-4</span>內分泌系統</li></ul>
+          <div class="ch-meta"><span>4 節正課</span><span>1 個探討活動</span></div>
+          <span class="ch-go">進入本章 <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
-      </div>
+      </a>
+      <a class="ch-card reveal" href="chapter5.html" style="--a:#b45309;--a2:#f59e0b;--t:#fffbeb">
+        <div class="ch-cover"><img src="img/cover5.jpg" alt="第5章 防禦 章節封面" loading="lazy" width="1000" height="1328"></div>
+        <div class="ch-body">
+          <div class="ch-kicker">CHAPTER 05 · Immune Defense</div>
+          <h2>第 5 章　防禦</h2>
+          <ul class="ch-list"><li><span>5-1</span>免疫系統</li><li><span>5-2</span>先天性免疫</li><li><span>5-3</span>後天性免疫</li><li><span>5-4</span>免疫失調與排斥</li></ul>
+          <div class="ch-meta"><span>4 節正課</span><span>1 個探討活動</span></div>
+          <span class="ch-go">進入本章 <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+      <a class="ch-card reveal" href="chapter6.html" style="--a:#be185d;--a2:#f472b6;--t:#fdf2f8">
+        <div class="ch-cover"><img src="img/cover6.jpg" alt="第6章 生殖 章節封面" loading="lazy" width="1000" height="1328"></div>
+        <div class="ch-body">
+          <div class="ch-kicker">CHAPTER 06 · Reproduction</div>
+          <h2>第 6 章　生殖</h2>
+          <ul class="ch-list"><li><span>6-1</span>生殖系統</li><li><span>6-2</span>配子的形成</li><li><span>6-3</span>受精過程</li><li><span>6-4</span>胚胎發育與懷孕</li></ul>
+          <div class="ch-meta"><span>4 節正課</span><span>3 個探討活動</span></div>
+          <span class="ch-go">進入本章 <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
     </div>
   </section>
-
-  <!-- 主要內容區：章節總覽卡片 Grid -->
-  <main class="main-container">
-    <div class="chapter-nav-grid">
-
-      <div class="chapter-card">
-        <div class="chapter-card-header">
-          <div class="chapter-badge-wrap">
-            <span class="chapter-number">CHAPTER 01</span>
-            <h2 class="chapter-title">動物體的組成與恆定性</h2>
-          </div>
-          <div class="chapter-icon">🧬</div>
-        </div>
-        <div class="chapter-card-body">
-          <p class="chapter-desc">探索動物四大基本組織（皮膜、結締、肌肉、神經）的微觀構造與生理功能，並理解體內恆定機制的負回饋調節核心思維。</p>
-          <div class="unit-list">
-            
-          <a href="ch1-1/" class="unit-item" title="動物組織的構造與功能">
-            <div class="unit-info">
-              <span class="unit-code">CH1-1</span>
-              <span class="unit-name">動物組織的構造與功能</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="ch1-2/" class="unit-item" title="恆定的生理意義與重要性">
-            <div class="unit-info">
-              <span class="unit-code">CH1-2</span>
-              <span class="unit-name">恆定的生理意義與重要性</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="lab1-1/" class="unit-item" title="動物組織的觀察">
-            <div class="unit-info">
-              <span class="unit-code">探討1-1</span>
-              <span class="unit-name">動物組織的觀察</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          </div>
-        </div>
-        <div class="chapter-card-footer">
-          <span style="font-size:13px;color:var(--text-muted)">共 3 個學習單元</span>
-          <a href="chapter1.html" class="btn-chapter-detail">
-            瀏覽章節圖解與詳情 <span>&rarr;</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="chapter-card">
-        <div class="chapter-card-header">
-          <div class="chapter-badge-wrap">
-            <span class="chapter-number">CHAPTER 02</span>
-            <h2 class="chapter-title">循環與消化</h2>
-          </div>
-          <div class="chapter-icon">❤️</div>
-        </div>
-        <div class="chapter-card-body">
-          <p class="chapter-desc">從心血管動力學、微血管物質交換，到消化道各器官之機械消化與化學水解作用，透視動物體能量與物質流通的生命中樞。</p>
-          <div class="unit-list">
-            
-          <a href="ch2-1/" class="unit-item" title="循環系統">
-            <div class="unit-info">
-              <span class="unit-code">CH2-1</span>
-              <span class="unit-name">循環系統</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="ch2-2/" class="unit-item" title="消化系統">
-            <div class="unit-info">
-              <span class="unit-code">CH2-2</span>
-              <span class="unit-name">消化系統</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="lab2-1/" class="unit-item" title="心臟的觀察">
-            <div class="unit-info">
-              <span class="unit-code">探討2-1</span>
-              <span class="unit-name">心臟的觀察</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          </div>
-        </div>
-        <div class="chapter-card-footer">
-          <span style="font-size:13px;color:var(--text-muted)">共 3 個學習單元</span>
-          <a href="chapter2.html" class="btn-chapter-detail">
-            瀏覽章節圖解與詳情 <span>&rarr;</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="chapter-card">
-        <div class="chapter-card-header">
-          <div class="chapter-badge-wrap">
-            <span class="chapter-number">CHAPTER 03</span>
-            <h2 class="chapter-title">呼吸與排泄</h2>
-          </div>
-          <div class="chapter-icon">🫁</div>
-        </div>
-        <div class="chapter-card-body">
-          <p class="chapter-desc">掌握肺臟氣體交換與氧氣/二氧化碳血液運輸化學，並深入腎元之過濾、再吸收與分泌機制，解析體液滲透壓與酸鹼恆定。</p>
-          <div class="unit-list">
-            
-          <a href="ch3-1/" class="unit-item" title="呼吸系統">
-            <div class="unit-info">
-              <span class="unit-code">CH3-1</span>
-              <span class="unit-name">呼吸系統</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="ch3-2/" class="unit-item" title="排泄系統">
-            <div class="unit-info">
-              <span class="unit-code">CH3-2</span>
-              <span class="unit-name">排泄系統</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="lab3-1/" class="unit-item" title="腎臟的觀察">
-            <div class="unit-info">
-              <span class="unit-code">探討3-1</span>
-              <span class="unit-name">腎臟的觀察</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          </div>
-        </div>
-        <div class="chapter-card-footer">
-          <span style="font-size:13px;color:var(--text-muted)">共 3 個學習單元</span>
-          <a href="chapter3.html" class="btn-chapter-detail">
-            瀏覽章節圖解與詳情 <span>&rarr;</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="chapter-card">
-        <div class="chapter-card-header">
-          <div class="chapter-badge-wrap">
-            <span class="chapter-number">CHAPTER 04</span>
-            <h2 class="chapter-title">感應（神經、受器、肌肉與內分泌）</h2>
-          </div>
-          <div class="chapter-icon">⚡</div>
-        </div>
-        <div class="chapter-card-body">
-          <p class="chapter-desc">從動作電位產生與突觸傳遞、各類感覺受器感知，到肌肉滑動學說及下視丘-腦下腺軸線的荷爾蒙調控，完整理解體內精準訊息網絡。</p>
-          <div class="unit-list">
-            
-          <a href="ch4-1/" class="unit-item" title="神經系統">
-            <div class="unit-info">
-              <span class="unit-code">CH4-1</span>
-              <span class="unit-name">神經系統</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="ch4-2/" class="unit-item" title="體內的受器">
-            <div class="unit-info">
-              <span class="unit-code">CH4-2</span>
-              <span class="unit-name">體內的受器</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="ch4-3/" class="unit-item" title="肌肉與骨骼">
-            <div class="unit-info">
-              <span class="unit-code">CH4-3</span>
-              <span class="unit-name">肌肉與骨骼</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="ch4-4/" class="unit-item" title="內分泌系統">
-            <div class="unit-info">
-              <span class="unit-code">CH4-4</span>
-              <span class="unit-name">內分泌系統</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="lab4-1/" class="unit-item" title="肌肉與骨骼的運作">
-            <div class="unit-info">
-              <span class="unit-code">探討4-1</span>
-              <span class="unit-name">肌肉與骨骼的運作</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          </div>
-        </div>
-        <div class="chapter-card-footer">
-          <span style="font-size:13px;color:var(--text-muted)">共 5 個學習單元</span>
-          <a href="chapter4.html" class="btn-chapter-detail">
-            瀏覽章節圖解與詳情 <span>&rarr;</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="chapter-card">
-        <div class="chapter-card-header">
-          <div class="chapter-badge-wrap">
-            <span class="chapter-number">CHAPTER 05</span>
-            <h2 class="chapter-title">防禦（免疫系統）</h2>
-          </div>
-          <div class="chapter-icon">🛡️</div>
-        </div>
-        <div class="chapter-card-body">
-          <p class="chapter-desc">建立人體三道防線知識體系，從皮膜物理化學屏障、發炎反應，到 B 細胞抗體免疫與 T 細胞細胞介導免疫之特異性防禦機制。</p>
-          <div class="unit-list">
-            
-          <a href="ch5-1/" class="unit-item" title="免疫系統">
-            <div class="unit-info">
-              <span class="unit-code">CH5-1</span>
-              <span class="unit-name">免疫系統</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="ch5-2/" class="unit-item" title="先天性免疫">
-            <div class="unit-info">
-              <span class="unit-code">CH5-2</span>
-              <span class="unit-name">先天性免疫</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="ch5-3/" class="unit-item" title="後天性免疫">
-            <div class="unit-info">
-              <span class="unit-code">CH5-3</span>
-              <span class="unit-name">後天性免疫</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="ch5-4/" class="unit-item" title="免疫失調與排斥">
-            <div class="unit-info">
-              <span class="unit-code">CH5-4</span>
-              <span class="unit-name">免疫失調與排斥</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="lab5-1/" class="unit-item" title="藉由ABO血型的鑑定探討抗原與抗體反應的基本模式">
-            <div class="unit-info">
-              <span class="unit-code">探討5-1</span>
-              <span class="unit-name">藉由ABO血型的鑑定探討抗原與抗體反應的基本模式</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          </div>
-        </div>
-        <div class="chapter-card-footer">
-          <span style="font-size:13px;color:var(--text-muted)">共 5 個學習單元</span>
-          <a href="chapter5.html" class="btn-chapter-detail">
-            瀏覽章節圖解與詳情 <span>&rarr;</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="chapter-card">
-        <div class="chapter-card-header">
-          <div class="chapter-badge-wrap">
-            <span class="chapter-number">CHAPTER 06</span>
-            <h2 class="chapter-title">生殖與胚胎發育</h2>
-          </div>
-          <div class="chapter-icon">🌱</div>
-        </div>
-        <div class="chapter-card-body">
-          <p class="chapter-desc">涵蓋男女生殖系統解剖、減數分裂精卵生成、月經與卵巢週期、受精卵裂，以及胚胎三胚層分化與母胎胎盤物質交換歷程。</p>
-          <div class="unit-list">
-            
-          <a href="ch6-1/" class="unit-item" title="生殖系統">
-            <div class="unit-info">
-              <span class="unit-code">CH6-1</span>
-              <span class="unit-name">生殖系統</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="ch6-2/" class="unit-item" title="配子的形成">
-            <div class="unit-info">
-              <span class="unit-code">CH6-2</span>
-              <span class="unit-name">配子的形成</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="ch6-3/" class="unit-item" title="受精過程">
-            <div class="unit-info">
-              <span class="unit-code">CH6-3</span>
-              <span class="unit-name">受精過程</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="ch6-4/" class="unit-item" title="胚胎發育與懷孕">
-            <div class="unit-info">
-              <span class="unit-code">CH6-4</span>
-              <span class="unit-name">胚胎發育與懷孕</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="lab6-1/" class="unit-item" title="生殖腺與生殖細胞的觀察">
-            <div class="unit-info">
-              <span class="unit-code">探討6-1</span>
-              <span class="unit-name">生殖腺與生殖細胞的觀察</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="lab6-2/" class="unit-item" title="代理孕母的倫理與法律問題">
-            <div class="unit-info">
-              <span class="unit-code">探討6-2</span>
-              <span class="unit-name">代理孕母的倫理與法律問題</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          <a href="lab6-3/" class="unit-item" title="蛙外部形態及內部構造的觀察">
-            <div class="unit-info">
-              <span class="unit-code">探討6-3</span>
-              <span class="unit-name">蛙外部形態及內部構造的觀察</span>
-            </div>
-            <div class="unit-action">
-              進入 <span>&rarr;</span>
-            </div>
-          </a>
-        
-          </div>
-        </div>
-        <div class="chapter-card-footer">
-          <span style="font-size:13px;color:var(--text-muted)">共 7 個學習單元</span>
-          <a href="chapter6.html" class="btn-chapter-detail">
-            瀏覽章節圖解與詳情 <span>&rarr;</span>
-          </a>
-        </div>
-      </div>
-    
-    </div>
-  </main>
-
-  <!-- 頁尾 Footer -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <img src="img/hanlin-logo-wide.png" alt="翰林出版" class="footer-logo">
-      </div>
-      <p class="footer-desc">
-        本教材網站依據 108 課綱技術與學科規範建置，整合高質感微型圖解探索、即時檢核題庫、逐步課堂簡報與 Google Drive 串流教學影片，提供師生無縫線上教學體驗。
-      </p>
-      <div class="footer-copyright">
-        &copy; 翰林出版事業股份有限公司 · 選修生物（Ⅲ）互動教學網站
-      </div>
-    </div>
-  </footer>
-
+  <section class="wrap quick-wrap">
+    <div class="sec-head reveal"><span class="eyebrow">QUICK ACCESS</span><h2>全部互動網頁快速入口</h2><p>老師上課或學生複習時，可直接開啟各節的互動教學網頁（另開新分頁）；教學影片請由章節頁進入。</p></div>
+    <div class="quick"><div class="qcol reveal" style="--a:#0d9488;--t:#f0fdfa"><h3><b>1</b>動物體的組成與恆定性</h3><a target="_blank" rel="noopener" href="ch1-1/index.html" class="q"><span class="q-code">1-1</span><span class="q-t">動物組織探險館<small>動物組織的構造與功能</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="ch1-2/index.html" class="q"><span class="q-code">1-2</span><span class="q-t">恆定平衡觀測站<small>恆定的生理意義與重要性</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="lab1-1/index.html" class="q q-lab"><span class="q-code">活動1-1</span><span class="q-t">動物組織顯微觀察工坊<small>動物組織的觀察</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="qcol reveal" style="--a:#be123c;--t:#fff1f2"><h3><b>2</b>循環與消化</h3><a target="_blank" rel="noopener" href="ch2-1/index.html" class="q"><span class="q-code">2-1</span><span class="q-t">循環系統運籌館<small>循環系統</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="ch2-2/index.html" class="q"><span class="q-code">2-2</span><span class="q-t">消化吸收智慧驛站<small>消化系統</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="lab2-1/index.html" class="q q-lab"><span class="q-code">活動2-1</span><span class="q-t">心臟解剖解密實驗室<small>心臟的觀察</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="qcol reveal" style="--a:#15803d;--t:#f0fdf4"><h3><b>3</b>呼吸與排泄</h3><a target="_blank" rel="noopener" href="ch3-1/index.html" class="q"><span class="q-code">3-1</span><span class="q-t">呼吸氣體交換中心<small>呼吸系統</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="ch3-2/index.html" class="q"><span class="q-code">3-2</span><span class="q-t">泌尿排泄恆定工房<small>排泄系統</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="lab3-1/index.html" class="q q-lab"><span class="q-code">活動3-1</span><span class="q-t">腎臟解剖觀察工作坊<small>腎臟的觀察</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="qcol reveal" style="--a:#4f46e5;--t:#eef2ff"><h3><b>4</b>感應</h3><a target="_blank" rel="noopener" href="ch4-1/index.html" class="q"><span class="q-code">4-1</span><span class="q-t">神經調節樞紐站<small>神經系統</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="ch4-2/index.html" class="q"><span class="q-code">4-2</span><span class="q-t">體內受器感知廊<small>體內的受器</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="ch4-3/index.html" class="q"><span class="q-code">4-3</span><span class="q-t">骨骼肌肉動力所<small>肌肉與骨骼</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="ch4-4/index.html" class="q"><span class="q-code">4-4</span><span class="q-t">內分泌訊號調度站<small>內分泌系統</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="lab4-1/index.html" class="q q-lab"><span class="q-code">活動4-1</span><span class="q-t">肌骨連動實作探秘<small>肌肉與骨骼的運作</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="qcol reveal" style="--a:#b45309;--t:#fffbeb"><h3><b>5</b>防禦</h3><a target="_blank" rel="noopener" href="ch5-1/index.html" class="q"><span class="q-code">5-1</span><span class="q-t">免疫防禦作戰部<small>免疫系統</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="ch5-2/index.html" class="q"><span class="q-code">5-2</span><span class="q-t">先天防線衛戍站<small>先天性免疫</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="ch5-3/index.html" class="q"><span class="q-code">5-3</span><span class="q-t">特異性免疫兵工廠<small>後天性免疫</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="ch5-4/index.html" class="q"><span class="q-code">5-4</span><span class="q-t">免疫調控與醫療探索坊<small>免疫失調與排斥</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="lab5-1/index.html" class="q q-lab"><span class="q-code">活動5-1</span><span class="q-t">血型凝集抗原抗體實驗室<small>藉由ABO血型的鑑定探討抗原與抗體反應的基本模式</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="qcol reveal" style="--a:#be185d;--t:#fdf2f8"><h3><b>6</b>生殖</h3><a target="_blank" rel="noopener" href="ch6-1/index.html" class="q"><span class="q-code">6-1</span><span class="q-t">生殖器官奧秘館<small>生殖系統</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="ch6-2/index.html" class="q"><span class="q-code">6-2</span><span class="q-t">配子生成與週期演繹驛站<small>配子的形成</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="ch6-3/index.html" class="q"><span class="q-code">6-3</span><span class="q-t">受精機制探索站<small>受精過程</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="ch6-4/index.html" class="q"><span class="q-code">6-4</span><span class="q-t">生命孕育胚胎發育長廊<small>胚胎發育與懷孕</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="lab6-1/index.html" class="q q-lab"><span class="q-code">活動6-1</span><span class="q-t">生殖細胞顯微鑑賞坊<small>生殖腺與生殖細胞的觀察</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="lab6-2/index.html" class="q q-lab"><span class="q-code">活動6-2</span><span class="q-t">代孕倫理思辨論壇<small>代理孕母的倫理與法律問題</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a target="_blank" rel="noopener" href="lab6-3/index.html" class="q q-lab"><span class="q-code">活動6-3</span><span class="q-t">青蛙解剖比較生物學館<small>蛙外部形態及內部構造的觀察</small></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
+  </section>
+</main>
+<footer class="foot">
+  <div class="foot-in">
+    <img src="img/hanlin-logo.png" alt="" width="34" height="34">
+    <p>內容整理自翰林版高中《選修生物Ⅲ（全）》課本，簡介依課文重點改寫，圖片取自課本，僅供課堂教學使用。<br>各節互動教學網頁由臺北市立麗山高中生物科自編製作，發布於 GitHub Pages；教學影片存放於 Google 雲端硬碟。</p>
+  </div>
+</footer>
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" aria-label="關閉">×</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+</div>
+<script src="app.js"></script>
 </body>
 </html>
